@@ -1,0 +1,18 @@
+{
+  "projectName": "todo-app-single-page",
+  "projectRootPath": "C:\\xampp\\htdocs\\projects\\create-prisma-php-app\\todo-app-single-page",
+  "phpEnvironment": "XAMPP",
+  "phpRootPathExe": "C:\\xampp\\php\\php.exe",
+  "phpGenerateClassPath": "src/Lib/Prisma/Classes",
+  "bsTarget": "http://localhost/projects/create-prisma-php-app/todo-app-single-page/",
+  "bsPathRewrite": {
+    "^/": "/projects/create-prisma-php-app/todo-app-single-page/"
+  },
+  "tailwindcss": true,
+  "websocket": false,
+  "prisma": true,
+  "htmx": true,
+  "docker": false,
+  "version": "1.12.7",
+  "excludeFiles": []
+}
