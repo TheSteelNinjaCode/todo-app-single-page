@@ -4,16 +4,6 @@ use Lib\Prisma\Classes\Prisma;
 
 $prisma = new Prisma();
 
-if ($isPost && isset($params->title)) {
-    $todo = $prisma->todo->create([
-        'data' => [
-            'title' => $params->title,
-        ],
-    ]);
-    renderTodos();
-    exit;
-}
-
 function todos(string $search = '')
 {
     global $prisma;
@@ -26,8 +16,13 @@ function todos(string $search = '')
     ], true);
 }
 
-if ($isGet && isset($params->search)) {
-    renderTodos($params->search);
+if ($isPost && isset($params->title)) {
+    $todo = $prisma->todo->create([
+        'data' => [
+            'title' => $params->title
+        ]
+    ]);
+    renderTodos();
     exit;
 }
 
@@ -64,6 +59,11 @@ if ($isDelete) {
         ]
     ]);
     renderTodos();
+    exit;
+}
+
+if ($isGet && isset($params->search)) {
+    renderTodos($params->search);
     exit;
 }
 
@@ -106,7 +106,7 @@ if ($isGet && isset($params->completedCount)) {
             <input type="text" placeholder="Add a new todo..." class="flex-1 px-4 py-2 rounded-l-md bg-gray-100 dark:bg-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" name="title" />
             <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-r-md">Add</button>
         </form>
-        <div class="space-y-2" id="todos" hx-get="<?= $pathname . '?search=""' ?>" hx-trigger="load">
+        <div class="space-y-2 h-72 overflow-y-scroll" id="todos" hx-get="<?= $pathname . '?search=""' ?>" hx-trigger="load">
             <?php function renderTodos(string $search = '')
             {
                 global $pathname;

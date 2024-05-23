@@ -10,5 +10,6 @@
     ".\/src\/app\\layout.php",
     ".\/src\/app\\metadata.php",
     ".\/src\/app\\not-found.php",
-    ".\/src\/app\\todo-non-api\\index.php"
+    ".\/src\/app\\todo-non-api\\index.php",
+    ".\/src\/app\\todo-non-api\\_api\\[crud]\\route.php"
 ]
